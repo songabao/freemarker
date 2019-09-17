@@ -43,9 +43,11 @@ public class SimpleMakeFreemarker {
         model.addAttribute("address",address);
         view.addAllObjects(model);
         view.setViewName(INIT);
+        User user = new User(name, age, sex, tel, email, address);
+        //保存到session中
         HttpSession session = request.getSession();
-        User user = new User(name,age,sex,tel,email,address);
-        session.setAttribute("user",user);
+        session.setAttribute("user", user);
+
         return  view;
     }
     /**
